@@ -1,0 +1,691 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Giáp</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	width:auto !important;
+	height:auto !important;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+	
+}
+
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.column {
+	padding: 0 1em;
+	
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+	
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-default_background {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(0, 0, 0, 0.06); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="1278f238-6219-8015-a893-d2ce4666b46a" class="page sans"><header><div class="page-header-icon undefined"><img class="icon" src="OIP (2).jpg"/></div><h1 class="page-title">Giáp</h1><p class="page-description"></p></header><div class="page-body"><hr id="1278f238-6219-804c-af86-ce91008e2b79"/><h2 id="1278f238-6219-8041-afe5-d2d83efd8bee" class="">Pre-Hardmode</h2><div id="1278f238-6219-8083-ad2e-cac93a9e0682" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesFile"><path d="M12.5938 8.44043L7.54883 13.4854C6.26367 14.7773 4.54102 14.6475 3.44043 13.54C2.32617 12.4326 2.20312 10.7168 3.49512 9.4248L10.3926 2.52734C11.1445 1.77539 12.2725 1.63867 13.0039 2.37695C13.7422 3.11523 13.6055 4.22949 12.8535 4.98828L6.08594 11.7627C5.77832 12.0703 5.41602 11.9814 5.2041 11.7764C4.99902 11.5576 4.91016 11.2021 5.21777 10.8877L9.93457 6.1709C10.1738 5.93164 10.1875 5.58301 9.96191 5.35059C9.72949 5.13184 9.38086 5.13867 9.1416 5.37793L4.39746 10.1152C3.67285 10.8535 3.7002 11.9746 4.34961 12.624C5.05371 13.3281 6.12012 13.3145 6.8584 12.5762L13.6602 5.77441C14.9795 4.45508 14.9316 2.71875 13.7764 1.55664C12.6416 0.428711 10.8779 0.34668 9.55176 1.66602L2.61328 8.61816C0.883789 10.3477 1 12.8291 2.57227 14.4014C4.14453 15.9668 6.63281 16.0898 8.3623 14.3672L13.4414 9.28809C13.6738 9.0625 13.667 8.64551 13.4346 8.41992C13.209 8.18066 12.833 8.21484 12.5938 8.44043Z"></path></svg></span>icon</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>name</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>defense</th></tr></thead><tbody><tr id="8249be61-07ee-4e44-be92-9a218023f1f9"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Mining_armor_female.png"><img style="width:20px;max-height:24px" src="Mining_armor_female.png" alt="Mining_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Mining_armor.png"><img style="width:20px;max-height:24px" src="Mining_armor.png" alt="Mining_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Mining-armor-8249be6107ee4e44be929a218023f1f9?pvs=21">Mining armor</a></td><td class="cell-QX=B">4</td></tr><tr id="711a5b98-005a-4cbd-bd2f-39d7b335faf2"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Wood_armor_female.png"><img style="width:20px;max-height:24px" src="Wood_armor_female.png" alt="Wood_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Wood_armor.png"><img style="width:20px;max-height:24px" src="Wood_armor.png" alt="Wood_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Wood-armor-711a5b98005a4cbdbd2f39d7b335faf2?pvs=21">Wood armor</a></td><td class="cell-QX=B">3</td></tr><tr id="937c4bfa-23f0-4692-bdb4-a1c8a8b69980"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Rich_Mahogany_armor_female.png"><img style="width:20px;max-height:24px" src="Rich_Mahogany_armor_female.png" alt="Rich_Mahogany_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Rich_Mahogany_armor.png"><img style="width:20px;max-height:24px" src="Rich_Mahogany_armor.png" alt="Rich_Mahogany_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Rich-Mahogany-armor-937c4bfa23f04692bdb4a1c8a8b69980?pvs=21">Rich Mahogany armor</a></td><td class="cell-QX=B">4</td></tr><tr id="1278f238-6219-806b-80b7-ca25de6982a1"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Boreal_Wood_armor_female.png"><img style="width:20px;max-height:24px" src="Boreal_Wood_armor_female.png" alt="Boreal_Wood_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Boreal_Wood_armor.png"><img style="width:20px;max-height:24px" src="Boreal_Wood_armor.png" alt="Boreal_Wood_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Boreal-Wood-armor-1278f2386219806b80b7ca25de6982a1?pvs=21">Boreal Wood armor</a></td><td class="cell-QX=B">4</td></tr><tr id="1278f238-6219-8002-9b76-fac0d7de47cc"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Palm_Wood_armor_female.png"><img style="width:20px;max-height:24px" src="Palm_Wood_armor_female.png" alt="Palm_Wood_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Palm_Wood_armor.png"><img style="width:20px;max-height:24px" src="Palm_Wood_armor.png" alt="Palm_Wood_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Palm-Wood-armor-1278f238621980029b76fac0d7de47cc?pvs=21">Palm Wood armor</a></td><td class="cell-QX=B">4</td></tr><tr id="1278f238-6219-80fa-8c65-e0ff0834f15f"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Ebonwood_armor_female.png"><img style="width:20px;max-height:24px" src="Ebonwood_armor_female.png" alt="Ebonwood_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Ebonwood_armor.png"><img style="width:20px;max-height:24px" src="Ebonwood_armor.png" alt="Ebonwood_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Ebonwood-armor-1278f238621980fa8c65e0ff0834f15f?pvs=21">Ebonwood armor</a></td><td class="cell-QX=B">5</td></tr><tr id="1278f238-6219-8081-b527-fb31d259ab67"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Shadewood_armor_female.png"><img style="width:20px;max-height:24px" src="Shadewood_armor_female.png" alt="Shadewood_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Shadewood_armor.png"><img style="width:20px;max-height:24px" src="Shadewood_armor.png" alt="Shadewood_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Shadewood-armor-1278f23862198081b527fb31d259ab67?pvs=21">Shadewood armor</a></td><td class="cell-QX=B">5</td></tr><tr id="1278f238-6219-8053-a9d8-c740f3d2cd3c"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Ash_Wood_armor_female.png"><img style="width:20px;max-height:24px" src="Ash_Wood_armor_female.png" alt="Ash_Wood_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Ash_Wood_armor.png"><img style="width:20px;max-height:24px" src="Ash_Wood_armor.png" alt="Ash_Wood_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Ash-wood-armor-1278f23862198053a9d8c740f3d2cd3c?pvs=21">Ash wood armor</a></td><td class="cell-QX=B">7</td></tr><tr id="1278f238-6219-803c-9851-f7eb544f57da"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Rain_armor_female.png"><img style="width:20px;max-height:24px" src="Rain_armor_female.png" alt="Rain_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Rain_armor.png"><img style="width:20px;max-height:24px" src="Rain_armor.png" alt="Rain_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Rain-armor-1278f2386219803c9851f7eb544f57da?pvs=21">Rain armor</a></td><td class="cell-QX=B">3</td></tr><tr id="1278f238-6219-8092-a50f-f9ec70cae930"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Snow_armor_female.png"><img style="width:20px;max-height:24px" src="Snow_armor_female.png" alt="Snow_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Snow_armor.png"><img style="width:20px;max-height:24px" src="Snow_armor.png" alt="Snow_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Snow-armor-1278f23862198092a50ff9ec70cae930?pvs=21">Snow armor</a></td><td class="cell-QX=B">9</td></tr><tr id="1278f238-6219-80cc-8dc8-f1ee5899e365"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Pink_Snow_armor_female.png"><img style="width:20px;max-height:24px" src="Pink_Snow_armor_female.png" alt="Pink_Snow_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Pink_Snow_armor.png"><img style="width:20px;max-height:24px" src="Pink_Snow_armor.png" alt="Pink_Snow_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Pink-Snow-armor-1278f238621980cc8dc8f1ee5899e365?pvs=21">Pink Snow armor</a></td><td class="cell-QX=B">4</td></tr><tr id="1278f238-6219-80d3-8885-c57032790eec"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Angler_armor_female.png"><img style="width:20px;max-height:24px" src="Angler_armor_female.png" alt="Angler_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Angler_armor.png"><img style="width:20px;max-height:24px" src="Angler_armor.png" alt="Angler_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Angler-armor-1278f238621980d38885c57032790eec?pvs=21">Angler armor</a></td><td class="cell-QX=B">4</td></tr><tr id="1278f238-6219-8023-bf12-d99fd05bf032"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Cactus_armor_female.png"><img style="width:20px;max-height:24px" src="Cactus_armor_female.png" alt="Cactus_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Cactus_armor.png"><img style="width:20px;max-height:24px" src="Cactus_armor.png" alt="Cactus_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Cactus-armor-1278f23862198023bf12d99fd05bf032?pvs=21">Cactus armor</a></td><td class="cell-QX=B">3</td></tr><tr id="1278f238-6219-80a1-aa45-fe4443f36563"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Copper_armor_female.png"><img style="width:20px;max-height:24px" src="Copper_armor_female.png" alt="Copper_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Copper_armor.png"><img style="width:20px;max-height:24px" src="Copper_armor.png" alt="Copper_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Copper-armor-1278f238621980a1aa45fe4443f36563?pvs=21">Copper armor</a></td><td class="cell-QX=B">6</td></tr><tr id="1278f238-6219-8015-ac11-c0369583bf9b"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Tin_armor_female.png"><img style="width:20px;max-height:24px" src="Tin_armor_female.png" alt="Tin_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Tin_armor.png"><img style="width:20px;max-height:24px" src="Tin_armor.png" alt="Tin_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Tin-armor-1278f23862198015ac11c0369583bf9b?pvs=21">Tin armor</a></td><td class="cell-QX=B">7</td></tr><tr id="1278f238-6219-809c-99ee-d7ef3bfe6766"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Pumpkin_armor_female.png"><img style="width:20px;max-height:24px" src="Pumpkin_armor_female.png" alt="Pumpkin_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Pumpkin_armor.png"><img style="width:20px;max-height:24px" src="Pumpkin_armor.png" alt="Pumpkin_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Pumpkin-armor-1278f2386219809c99eed7ef3bfe6766?pvs=21">Pumpkin armor</a></td><td class="cell-QX=B">7</td></tr><tr id="1278f238-6219-8097-a42c-e2c1e4d6c1a3"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Ninja_armor_female.png"><img style="width:20px;max-height:24px" src="Ninja_armor_female.png" alt="Ninja_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Ninja_armor.png"><img style="width:20px;max-height:24px" src="Ninja_armor.png" alt="Ninja_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Ninja-armor-1278f23862198097a42ce2c1e4d6c1a3?pvs=21">Ninja armor</a></td><td class="cell-QX=B">9</td></tr><tr id="1278f238-6219-807f-9b49-f88d718902b6"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Ancient_Iron_Helmet_(equipped)_female.png"><img style="width:20px;max-height:24px" src="Ancient_Iron_Helmet_(equipped)_female.png" alt="Ancient_Iron_Helmet_(equipped)_female.png"/></a></span><span style="margin-right:6px"><a href="Ancient_Iron_Helmet_(equipped).png"><img style="width:20px;max-height:24px" src="Ancient_Iron_Helmet_(equipped).png" alt="Ancient_Iron_Helmet_(equipped).png"/></a></span><span style="margin-right:6px"><a href="Iron_armor_female.png"><img style="width:20px;max-height:24px" src="Iron_armor_female.png" alt="Iron_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Iron_armor.png"><img style="width:20px;max-height:24px" src="Iron_armor.png" alt="Iron_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Iron-armor-1278f2386219807f9b49f88d718902b6?pvs=21">Iron armor</a></td><td class="cell-QX=B">9</td></tr><tr id="1278f238-6219-80f0-937a-fc8efe536987"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Lead_armor_female.png"><img style="width:20px;max-height:24px" src="Lead_armor_female.png" alt="Lead_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Lead_armor.png"><img style="width:20px;max-height:24px" src="Lead_armor.png" alt="Lead_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Lead-armor-1278f238621980f0937afc8efe536987?pvs=21">Lead armor</a></td><td class="cell-QX=B">11</td></tr><tr id="1278f238-6219-8024-8174-fbd2d593c09e"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Silver_armor_female.png"><img style="width:20px;max-height:24px" src="Silver_armor_female.png" alt="Silver_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Silver_armor.png"><img style="width:20px;max-height:24px" src="Silver_armor.png" alt="Silver_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Silver-armor-1278f238621980248174fbd2d593c09e?pvs=21">Silver armor</a></td><td class="cell-QX=B">13</td></tr><tr id="1278f238-6219-80de-af47-c41f6e613e22"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Tungsten_armor_female.png"><img style="width:20px;max-height:24px" src="Tungsten_armor_female.png" alt="Tungsten_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Tungsten_armor.png"><img style="width:20px;max-height:24px" src="Tungsten_armor.png" alt="Tungsten_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Tungsten-armor-1278f238621980deaf47c41f6e613e22?pvs=21">Tungsten armor</a></td><td class="cell-QX=B">15</td></tr><tr id="1278f238-6219-8009-ab67-e72ff16f20db"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Ancient_Gold_Helmet_(equipped)_female.png"><img style="width:20px;max-height:24px" src="Ancient_Gold_Helmet_(equipped)_female.png" alt="Ancient_Gold_Helmet_(equipped)_female.png"/></a></span><span style="margin-right:6px"><a href="Ancient_Gold_Helmet_(equipped).png"><img style="width:20px;max-height:24px" src="Ancient_Gold_Helmet_(equipped).png" alt="Ancient_Gold_Helmet_(equipped).png"/></a></span><span style="margin-right:6px"><a href="Gold_armor_female.png"><img style="width:20px;max-height:24px" src="Gold_armor_female.png" alt="Gold_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Gold_armor.png"><img style="width:20px;max-height:24px" src="Gold_armor.png" alt="Gold_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Gold-armor-1278f23862198009ab67e72ff16f20db?pvs=21">Gold armor</a></td><td class="cell-QX=B">16</td></tr><tr id="1278f238-6219-80dc-b1d6-cfbe26cd52a7"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Platinum_armor_female.png"><img style="width:20px;max-height:24px" src="Platinum_armor_female.png" alt="Platinum_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Platinum_armor.png"><img style="width:20px;max-height:24px" src="Platinum_armor.png" alt="Platinum_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Platinum-armor-1278f238621980dcb1d6cfbe26cd52a7?pvs=21">Platinum armor</a></td><td class="cell-QX=B">20</td></tr><tr id="1278f238-6219-8085-912a-f66f1f58914f"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Fossil_armor_female.png"><img style="width:20px;max-height:24px" src="Fossil_armor_female.png" alt="Fossil_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Fossil_armor.png"><img style="width:20px;max-height:24px" src="Fossil_armor.png" alt="Fossil_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Fossil-armor-1278f23862198085912af66f1f58914f?pvs=21">Fossil armor</a></td><td class="cell-QX=B">13</td></tr><tr id="1278f238-6219-80a5-889e-f565d39fe8cd"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Bee_armor_female.png"><img style="width:20px;max-height:24px" src="Bee_armor_female.png" alt="Bee_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Bee_armor.png"><img style="width:20px;max-height:24px" src="Bee_armor.png" alt="Bee_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Bee-armor-1278f238621980a5889ef565d39fe8cd?pvs=21">Bee armor</a></td><td class="cell-QX=B">13</td></tr><tr id="1278f238-6219-802b-983c-fdf2ac742eb9"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Obsidian_armor_female.png"><img style="width:20px;max-height:24px" src="Obsidian_armor_female.png" alt="Obsidian_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Obsidian_armor.png"><img style="width:20px;max-height:24px" src="Obsidian_armor.png" alt="Obsidian_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Obsidian-armor-1278f2386219802b983cfdf2ac742eb9?pvs=21">Obsidian armor</a></td><td class="cell-QX=B">15</td></tr><tr id="1278f238-6219-80a1-a23e-e67e8a422df9"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Gladiator_armor_female.png"><img style="width:20px;max-height:24px" src="Gladiator_armor_female.png" alt="Gladiator_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Gladiator_armor.png"><img style="width:20px;max-height:24px" src="Gladiator_armor.png" alt="Gladiator_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Gladiator-armor-1278f238621980a1a23ee67e8a422df9?pvs=21">Gladiator armor</a></td><td class="cell-QX=B">16</td></tr><tr id="1278f238-6219-8079-bfbe-f1fa3e0df474"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Meteor_armor_female.png"><img style="width:20px;max-height:24px" src="Meteor_armor_female.png" alt="Meteor_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Meteor_armor.png"><img style="width:20px;max-height:24px" src="Meteor_armor.png" alt="Meteor_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Meteor-armor-1278f23862198079bfbef1fa3e0df474?pvs=21">Meteor armor</a></td><td class="cell-QX=B">16</td></tr><tr id="1278f238-6219-8015-b33e-cedccc879f8e"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Jungle_armor_female.png"><img style="width:20px;max-height:24px" src="Jungle_armor_female.png" alt="Jungle_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Jungle_armor.png"><img style="width:20px;max-height:24px" src="Jungle_armor.png" alt="Jungle_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/ungle-armor-1278f23862198015b33ecedccc879f8e?pvs=21">ungle armor</a></td><td class="cell-QX=B">17</td></tr><tr id="1278f238-6219-8079-a994-dceea0b8cb05"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Ancient_Cobalt_armor_female.png"><img style="width:20px;max-height:24px" src="Ancient_Cobalt_armor_female.png" alt="Ancient_Cobalt_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Ancient_Cobalt_armor.png"><img style="width:20px;max-height:24px" src="Ancient_Cobalt_armor.png" alt="Ancient_Cobalt_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Ancient-Cobalt-armor-1278f23862198079a994dceea0b8cb05?pvs=21">Ancient Cobalt armor</a></td><td class="cell-QX=B">17</td></tr><tr id="1278f238-6219-80ff-afeb-f6199905093d"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Ancient_Necro_Helmet_(equipped)_female.png"><img style="width:20px;max-height:24px" src="Ancient_Necro_Helmet_(equipped)_female.png" alt="Ancient_Necro_Helmet_(equipped)_female.png"/></a></span><span style="margin-right:6px"><a href="Ancient_Necro_Helmet_(equipped).png"><img style="width:20px;max-height:24px" src="Ancient_Necro_Helmet_(equipped).png" alt="Ancient_Necro_Helmet_(equipped).png"/></a></span><span style="margin-right:6px"><a href="Necro_armor_female.png"><img style="width:20px;max-height:24px" src="Necro_armor_female.png" alt="Necro_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Necro_armor.png"><img style="width:20px;max-height:24px" src="Necro_armor.png" alt="Necro_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Necro-armor-1278f238621980ffafebf6199905093d?pvs=21">Necro armor</a></td><td class="cell-QX=B">16</td></tr><tr id="1278f238-6219-80e1-9a67-eb83fa05af7a"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Shadow_armor_female.png"><img style="width:20px;max-height:24px" src="Shadow_armor_female.png" alt="Shadow_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Shadow_armor.png"><img style="width:20px;max-height:24px" src="Shadow_armor.png" alt="Shadow_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Shadow-armor-1278f238621980e19a67eb83fa05af7a?pvs=21">Shadow armor</a></td><td class="cell-QX=B">19</td></tr><tr id="1278f238-6219-807b-9754-d26883f78ea0"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Ancient_Shadow_armor_female.png"><img style="width:20px;max-height:24px" src="Ancient_Shadow_armor_female.png" alt="Ancient_Shadow_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Ancient_Shadow_armor.png"><img style="width:20px;max-height:24px" src="Ancient_Shadow_armor.png" alt="Ancient_Shadow_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Ancient-Shadow-armor-1278f2386219807b9754d26883f78ea0?pvs=21">Ancient Shadow armor</a></td><td class="cell-QX=B">19</td></tr><tr id="1278f238-6219-8020-8d2e-d3007d1671d9"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Crimson_armor_female.png"><img style="width:20px;max-height:24px" src="Crimson_armor_female.png" alt="Crimson_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Crimson_armor.png"><img style="width:20px;max-height:24px" src="Crimson_armor.png" alt="Crimson_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Crimson-armor-1278f238621980208d2ed3007d1671d9?pvs=21">Crimson armor</a></td><td class="cell-QX=B">19</td></tr><tr id="1278f238-6219-8007-8bac-d480cc37ea24"><td class="cell-gJ\N"><span style="margin-right:6px"><a href="Molten_armor_female.png"><img style="width:20px;max-height:24px" src="Molten_armor_female.png" alt="Molten_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Molten_armor.png"><img style="width:20px;max-height:24px" src="Molten_armor.png" alt="Molten_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Molten-armor-1278f238621980078bacd480cc37ea24?pvs=21">Molten armor</a></td><td class="cell-QX=B">25</td></tr></tbody></table><br/><br/></div><hr id="1278f238-6219-803b-b5b7-e02f8c8c90d8"/><h2 id="1278f238-6219-8037-a348-c55130b9e2fd" class=""><strong><a href="https://terraria.fandom.com/wiki/Hardmode">Hardmode</a></strong></h2><div id="1278f238-6219-803d-b4ce-dff4fd5de3b7" class="collection-content"><h4 class="collection-title"></h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesFile"><path d="M12.5938 8.44043L7.54883 13.4854C6.26367 14.7773 4.54102 14.6475 3.44043 13.54C2.32617 12.4326 2.20312 10.7168 3.49512 9.4248L10.3926 2.52734C11.1445 1.77539 12.2725 1.63867 13.0039 2.37695C13.7422 3.11523 13.6055 4.22949 12.8535 4.98828L6.08594 11.7627C5.77832 12.0703 5.41602 11.9814 5.2041 11.7764C4.99902 11.5576 4.91016 11.2021 5.21777 10.8877L9.93457 6.1709C10.1738 5.93164 10.1875 5.58301 9.96191 5.35059C9.72949 5.13184 9.38086 5.13867 9.1416 5.37793L4.39746 10.1152C3.67285 10.8535 3.7002 11.9746 4.34961 12.624C5.05371 13.3281 6.12012 13.3145 6.8584 12.5762L13.6602 5.77441C14.9795 4.45508 14.9316 2.71875 13.7764 1.55664C12.6416 0.428711 10.8779 0.34668 9.55176 1.66602L2.61328 8.61816C0.883789 10.3477 1 12.8291 2.57227 14.4014C4.14453 15.9668 6.63281 16.0898 8.3623 14.3672L13.4414 9.28809C13.6738 9.0625 13.667 8.64551 13.4346 8.41992C13.209 8.18066 12.833 8.21484 12.5938 8.44043Z"></path></svg></span>icon</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesTitle"><path d="M0.637695 13.1914C1.0957 13.1914 1.32812 13 1.47852 12.5215L2.24414 10.3887H6.14746L6.90625 12.5215C7.05664 13 7.2959 13.1914 7.74707 13.1914C8.22559 13.1914 8.5332 12.9043 8.5332 12.4531C8.5332 12.2891 8.50586 12.1523 8.44434 11.9678L5.41602 3.79199C5.2041 3.21777 4.82129 2.9375 4.19922 2.9375C3.60449 2.9375 3.21484 3.21777 3.0166 3.78516L-0.0322266 12.002C-0.09375 12.1797 -0.121094 12.3232 -0.121094 12.4668C-0.121094 12.918 0.166016 13.1914 0.637695 13.1914ZM2.63379 9.12402L4.17871 4.68066H4.21973L5.76465 9.12402H2.63379ZM12.2793 13.2324C13.3115 13.2324 14.2891 12.6787 14.7129 11.8037H14.7402V12.5762C14.7471 12.9863 15.0273 13.2393 15.4238 13.2393C15.834 13.2393 16.1143 12.9795 16.1143 12.5215V8.00977C16.1143 6.49902 14.9658 5.52148 13.1543 5.52148C11.7666 5.52148 10.6592 6.08887 10.2695 6.99121C10.1943 7.15527 10.1533 7.3125 10.1533 7.46289C10.1533 7.81152 10.4062 8.04395 10.7686 8.04395C11.0215 8.04395 11.2129 7.94824 11.3496 7.73633C11.7529 6.99121 12.2861 6.65625 13.1064 6.65625C14.0977 6.65625 14.6992 7.20996 14.6992 8.1123V8.67285L12.5664 8.7959C10.7686 8.8916 9.77734 9.69824 9.77734 11.0107C9.77734 12.3369 10.8096 13.2324 12.2793 13.2324ZM12.6621 12.1387C11.8008 12.1387 11.2129 11.667 11.2129 10.9561C11.2129 10.2725 11.7598 9.82129 12.7578 9.75977L14.6992 9.62988V10.3203C14.6992 11.3457 13.7969 12.1387 12.6621 12.1387Z"></path></svg></span>name</th><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>defense</th></tr></thead><tbody><tr id="a10488ea-5dd6-4c48-ae90-a0e4d6f0d9fb"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Pearlwood_armor_female.png"><img style="width:20px;max-height:24px" src="Pearlwood_armor_female.png" alt="Pearlwood_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Pearlwood_armor.png"><img style="width:20px;max-height:24px" src="Pearlwood_armor.png" alt="Pearlwood_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Pearlwood-armor-a10488ea5dd64c48ae90a0e4d6f0d9fb?pvs=21">Pearlwood armor</a></td><td class="cell-MNSf">8</td></tr><tr id="beb400c6-7af5-4948-95e3-1c4f0fbe9075"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Spider_armor_female.png"><img style="width:20px;max-height:24px" src="Spider_armor_female.png" alt="Spider_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Spider_armor.png"><img style="width:20px;max-height:24px" src="Spider_armor.png" alt="Spider_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Spider-armor-beb400c67af5494895e31c4f0fbe9075?pvs=21">Spider armor</a></td><td class="cell-MNSf">20</td></tr><tr id="c0b7b341-159e-4ea2-9732-2c8189255319"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Cobalt_armor_female.png"><img style="width:20px;max-height:24px" src="Cobalt_armor_female.png" alt="Cobalt_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Cobalt_armor.png"><img style="width:20px;max-height:24px" src="Cobalt_armor.png" alt="Cobalt_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Cobalt-armor-c0b7b341159e4ea297322c8189255319?pvs=21">Cobalt armor</a></td><td class="cell-MNSf">Magic: 18<br/>Range: 20<br/>Melee: 28<br/></td></tr><tr id="1278f238-6219-80fd-b01d-d687ec60d700"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Palladium_armor_female.png"><img style="width:20px;max-height:24px" src="Palladium_armor_female.png" alt="Palladium_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Palladium_armor.png"><img style="width:20px;max-height:24px" src="Palladium_armor.png" alt="Palladium_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Palladium-armor-1278f238621980fdb01dd687ec60d700?pvs=21">Palladium armor</a></td><td class="cell-MNSf">Magic: 21<br/>Range: 23<br/>Melee: 32<br/></td></tr><tr id="1278f238-6219-8069-adb1-fe7602736e7b"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Mythril_armor_female.png"><img style="width:20px;max-height:24px" src="Mythril_armor_female.png" alt="Mythril_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Mythril_armor.png"><img style="width:20px;max-height:24px" src="Mythril_armor.png" alt="Mythril_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Mythril-armor-1278f23862198069adb1fe7602736e7b?pvs=21">Mythril armor</a></td><td class="cell-MNSf">Magic: 21<br/>Range: 23<br/>Melee: 32<br/></td></tr><tr id="1278f238-6219-80a0-af02-cbcd9e73c3e6"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Orichalcum_armor_female.png"><img style="width:20px;max-height:24px" src="Orichalcum_armor_female.png" alt="Orichalcum_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Orichalcum_armor.png"><img style="width:20px;max-height:24px" src="Orichalcum_armor.png" alt="Orichalcum_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Orichalcum-armor-1278f238621980a0af02cbcd9e73c3e6?pvs=21">Orichalcum armor</a></td><td class="cell-MNSf">Magic: 27<br/>Range: 30<br/>Melee: 42<br/></td></tr><tr id="1278f238-6219-80d9-ba0a-fe1136353ff8"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Adamantite_armor_female.png"><img style="width:20px;max-height:24px" src="Adamantite_armor_female.png" alt="Adamantite_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Adamantite_armor.png"><img style="width:20px;max-height:24px" src="Adamantite_armor.png" alt="Adamantite_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Adamantite-armor-1278f238621980d9ba0afe1136353ff8?pvs=21">Adamantite armor</a></td><td class="cell-MNSf">Magic: 32<br/>Range: 36<br/>Melee: 50<br/></td></tr><tr id="1278f238-6219-800f-8ca5-cac3ef0253fa"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Titanium_armor_female.png"><img style="width:20px;max-height:24px" src="Titanium_armor_female.png" alt="Titanium_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Titanium_armor.png"><img style="width:20px;max-height:24px" src="Titanium_armor.png" alt="Titanium_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Titanium-armor-1278f2386219800f8ca5cac3ef0253fa?pvs=21">Titanium armor</a></td><td class="cell-MNSf">Magic: 30<br/>Range: 34<br/>Melee: 49<br/></td></tr><tr id="1278f238-6219-80a2-ade6-d94008ab5b56"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Crystal_Assassin_armor_female.png"><img style="width:20px;max-height:24px" src="Crystal_Assassin_armor_female.png" alt="Crystal_Assassin_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Crystal_Assassin_armor.png"><img style="width:20px;max-height:24px" src="Crystal_Assassin_armor.png" alt="Crystal_Assassin_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Crystal-Assassin-armor-1278f238621980a2ade6d94008ab5b56?pvs=21">Crystal Assassin armor</a></td><td class="cell-MNSf">36</td></tr><tr id="1278f238-6219-8034-94e9-cc6e312055dc"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Frost_armor_female.png"><img style="width:20px;max-height:24px" src="Frost_armor_female.png" alt="Frost_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Frost_armor.png"><img style="width:20px;max-height:24px" src="Frost_armor.png" alt="Frost_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Frost-armor-1278f2386219803494e9cc6e312055dc?pvs=21">Frost armor</a></td><td class="cell-MNSf">43</td></tr><tr id="1278f238-6219-80ec-a9aa-d77a7249d98b"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Forbidden_armor_female.png"><img style="width:20px;max-height:24px" src="Forbidden_armor_female.png" alt="Forbidden_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Forbidden_armor.png"><img style="width:20px;max-height:24px" src="Forbidden_armor.png" alt="Forbidden_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Forbidden-armor-1278f238621980eca9aad77a7249d98b?pvs=21">Forbidden armor</a></td><td class="cell-MNSf">26</td></tr><tr id="1278f238-6219-800c-85f3-fd61634307f8"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Squire_armor_female.png"><img style="width:20px;max-height:24px" src="Squire_armor_female.png" alt="Squire_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Squire_armor.png"><img style="width:20px;max-height:24px" src="Squire_armor.png" alt="Squire_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Squire-armor-1278f2386219800c85f3fd61634307f8?pvs=21">Squire armor</a></td><td class="cell-MNSf">56</td></tr><tr id="1278f238-6219-8056-8d56-e600c300d4f6"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Monk_armor_female.png"><img style="width:20px;max-height:24px" src="Monk_armor_female.png" alt="Monk_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Monk_armor.png"><img style="width:20px;max-height:24px" src="Monk_armor.png" alt="Monk_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Monk-armor-1278f238621980568d56e600c300d4f6?pvs=21">Monk armor</a></td><td class="cell-MNSf">46</td></tr><tr id="1278f238-6219-803b-9141-c24671241c67"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Huntress_armor_female.png"><img style="width:20px;max-height:24px" src="Huntress_armor_female.png" alt="Huntress_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Huntress_armor.png"><img style="width:20px;max-height:24px" src="Huntress_armor.png" alt="Huntress_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Huntress-armor-1278f2386219803b9141c24671241c67?pvs=21">Huntress armor</a></td><td class="cell-MNSf">36</td></tr><tr id="1278f238-6219-8018-b401-f3233f06c476"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Apprentice_armor_female.png"><img style="width:20px;max-height:24px" src="Apprentice_armor_female.png" alt="Apprentice_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Apprentice_armor.png"><img style="width:20px;max-height:24px" src="Apprentice_armor.png" alt="Apprentice_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Apprentice-armor-1278f23862198018b401f3233f06c476?pvs=21">Apprentice armor</a></td><td class="cell-MNSf">32</td></tr><tr id="1278f238-6219-808c-bc7b-d4b736473d09"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Hallowed_armor_female.png"><img style="width:20px;max-height:24px" src="Hallowed_armor_female.png" alt="Hallowed_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Hallowed_armor.png"><img style="width:20px;max-height:24px" src="Hallowed_armor.png" alt="Hallowed_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Hallowed-armor-1278f2386219808cbc7bd4b736473d09?pvs=21">Hallowed armor</a></td><td class="cell-MNSf">Summon: 27<br/>Magic: 31<br/>Range: 35<br/>Melee:50<br/></td></tr><tr id="1278f238-6219-809d-8541-d38c51103526"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Ancient_Hallowed_armor.png"><img style="width:20px;max-height:24px" src="Ancient_Hallowed_armor.png" alt="Ancient_Hallowed_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Ancient-Hallowed-armor-1278f2386219809d8541d38c51103526?pvs=21">Ancient Hallowed armor</a></td><td class="cell-MNSf">Summon: 27<br/>Magic: 31<br/>Range: 35<br/>Melee:50<br/></td></tr><tr id="1278f238-6219-8048-8f3f-e9f27653e351"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Chlorophyte_armor_female.png"><img style="width:20px;max-height:24px" src="Chlorophyte_armor_female.png" alt="Chlorophyte_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Chlorophyte_armor.png"><img style="width:20px;max-height:24px" src="Chlorophyte_armor.png" alt="Chlorophyte_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Chlorophyte-armor-1278f238621980488f3fe9f27653e351?pvs=21">Chlorophyte armor</a></td><td class="cell-MNSf">Magic: 38<br/>Range: 44<br/>Melee: 56<br/></td></tr><tr id="1278f238-6219-8052-93b2-fd579147a88e"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Turtle_armor_female.png"><img style="width:20px;max-height:24px" src="Turtle_armor_female.png" alt="Turtle_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Turtle_armor.png"><img style="width:20px;max-height:24px" src="Turtle_armor.png" alt="Turtle_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Turtle-armor-1278f2386219805293b2fd579147a88e?pvs=21">Turtle armor</a></td><td class="cell-MNSf">65</td></tr><tr id="1278f238-6219-80f6-b315-cecbb67ab748"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Tiki_armor_female.png"><img style="width:20px;max-height:24px" src="Tiki_armor_female.png" alt="Tiki_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Tiki_armor.png"><img style="width:20px;max-height:24px" src="Tiki_armor.png" alt="Tiki_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Tiki-armor-1278f238621980f6b315cecbb67ab748?pvs=21">Tiki armor</a></td><td class="cell-MNSf">35</td></tr><tr id="1278f238-6219-8005-bc95-daccf868503d"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Beetle_armor_female.png"><img style="width:20px;max-height:24px" src="Beetle_armor_female.png" alt="Beetle_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Beetle_armor.png"><img style="width:20px;max-height:24px" src="Beetle_armor.png" alt="Beetle_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Beetle-armor-1278f23862198005bc95daccf868503d?pvs=21">Beetle armor</a></td><td class="cell-MNSf">Scale: 61<br/>Shell: 73<br/></td></tr><tr id="1278f238-6219-804a-8204-e7f2254f6c03"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Shroomite_armor_female.png"><img style="width:20px;max-height:24px" src="Shroomite_armor_female.png" alt="Shroomite_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Shroomite_armor.png"><img style="width:20px;max-height:24px" src="Shroomite_armor.png" alt="Shroomite_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Shroomite-armor-1278f2386219804a8204e7f2254f6c03?pvs=21">Shroomite armor</a></td><td class="cell-MNSf">51</td></tr><tr id="1278f238-6219-803f-bf3a-d516739e4389"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Spectre_armor_female.png"><img style="width:20px;max-height:24px" src="Spectre_armor_female.png" alt="Spectre_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Spectre_armor.png"><img style="width:20px;max-height:24px" src="Spectre_armor.png" alt="Spectre_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Spectre-armor-1278f2386219803fbf3ad516739e4389?pvs=21">Spectre armor</a></td><td class="cell-MNSf">Hood: 30 <br/>Mask: 42<br/></td></tr><tr id="1278f238-6219-80c8-a285-fb15e9f9ce9f"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Spooky_armor.png"><img style="width:20px;max-height:24px" src="Spooky_armor.png" alt="Spooky_armor.png"/></a></span><span style="margin-right:6px"><a href="Spooky_armor_female.png"><img style="width:20px;max-height:24px" src="Spooky_armor_female.png" alt="Spooky_armor_female.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Spooky-armor-1278f238621980c8a285fb15e9f9ce9f?pvs=21">Spooky armor</a></td><td class="cell-MNSf">30</td></tr><tr id="1278f238-6219-806f-94d2-cb6cfa015059"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Dragon_armor_female.png"><img style="width:20px;max-height:24px" src="Dragon_armor_female.png" alt="Dragon_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Dragon_armor.png"><img style="width:20px;max-height:24px" src="Dragon_armor.png" alt="Dragon_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Dragon-armor-1278f2386219806f94d2cb6cfa015059?pvs=21">Dragon armor</a></td><td class="cell-MNSf">65</td></tr><tr id="1278f238-6219-80cc-bb0c-fba3ca5bd957"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Titan_armor_female.png"><img style="width:20px;max-height:24px" src="Titan_armor_female.png" alt="Titan_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Titan_armor.png"><img style="width:20px;max-height:24px" src="Titan_armor.png" alt="Titan_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Titan-armor-1278f238621980ccbb0cfba3ca5bd957?pvs=21">Titan armor</a></td><td class="cell-MNSf">45</td></tr><tr id="1278f238-6219-80c7-b5a7-e5875f40638b"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Spectral_armor_female.png"><img style="width:20px;max-height:24px" src="Spectral_armor_female.png" alt="Spectral_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Spectral_armor.png"><img style="width:20px;max-height:24px" src="Spectral_armor.png" alt="Spectral_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Spectral-armor-1278f238621980c7b5a7e5875f40638b?pvs=21">Spectral armor</a></td><td class="cell-MNSf">40</td></tr><tr id="1278f238-6219-8011-aed0-fddca0389df5"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Valhalla_Knight_armor_female.png"><img style="width:20px;max-height:24px" src="Valhalla_Knight_armor_female.png" alt="Valhalla_Knight_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Valhalla_Knight_armor.png"><img style="width:20px;max-height:24px" src="Valhalla_Knight_armor.png" alt="Valhalla_Knight_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Valhalla-Knight-armor-1278f23862198011aed0fddca0389df5?pvs=21">Valhalla Knight armor</a></td><td class="cell-MNSf">68</td></tr><tr id="1278f238-6219-805c-bedd-cdacecc041a8"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Shinobi_Infiltrator_armor_female.png"><img style="width:20px;max-height:24px" src="Shinobi_Infiltrator_armor_female.png" alt="Shinobi_Infiltrator_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Shinobi_Infiltrator_armor.png"><img style="width:20px;max-height:24px" src="Shinobi_Infiltrator_armor.png" alt="Shinobi_Infiltrator_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Shinobi-Infiltrator-armor-1278f2386219805cbeddcdacecc041a8?pvs=21">Shinobi Infiltrator armor</a></td><td class="cell-MNSf">54</td></tr><tr id="1278f238-6219-8018-9c27-d75d2f875830"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Red_Riding_armor_female.png"><img style="width:20px;max-height:24px" src="Red_Riding_armor_female.png" alt="Red_Riding_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Red_Riding_armor.png"><img style="width:20px;max-height:24px" src="Red_Riding_armor.png" alt="Red_Riding_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Red-Riding-armor-1278f238621980189c27d75d2f875830?pvs=21">Red Riding armor</a></td><td class="cell-MNSf">48</td></tr><tr id="1278f238-6219-80d8-925b-de7cdd0060c3"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Dark_Artist_armor.png"><img style="width:20px;max-height:24px" src="Dark_Artist_armor.png" alt="Dark_Artist_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Dark-Artist-armor-1278f238621980d8925bde7cdd0060c3?pvs=21">Dark Artist armor</a></td><td class="cell-MNSf">42</td></tr><tr id="1278f238-6219-80b1-8fee-fd1580ccef6e"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Solar_Flare_armor_female.png"><img style="width:20px;max-height:24px" src="Solar_Flare_armor_female.png" alt="Solar_Flare_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Solar_Flare_armor.png"><img style="width:20px;max-height:24px" src="Solar_Flare_armor.png" alt="Solar_Flare_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Solar-Flare-armor-1278f238621980b18feefd1580ccef6e?pvs=21">Solar Flare armor</a></td><td class="cell-MNSf">78</td></tr><tr id="1278f238-6219-8094-baef-c1101664efc0"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Vortex_armor_female.png"><img style="width:20px;max-height:24px" src="Vortex_armor_female.png" alt="Vortex_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Vortex_armor.png"><img style="width:20px;max-height:24px" src="Vortex_armor.png" alt="Vortex_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Vortex-armor-1278f23862198094baefc1101664efc0?pvs=21">Vortex armor</a></td><td class="cell-MNSf">62</td></tr><tr id="1288f238-6219-80b9-abf6-f5c96b3aaf96"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Nebula_armor_female.png"><img style="width:20px;max-height:24px" src="Nebula_armor_female.png" alt="Nebula_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Nebula_armor.png"><img style="width:20px;max-height:24px" src="Nebula_armor.png" alt="Nebula_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Nebula-armor-1288f238621980b9abf6f5c96b3aaf96?pvs=21">Nebula armor</a></td><td class="cell-MNSf">46</td></tr><tr id="1288f238-6219-80d0-b5c4-fc849ff8b4a9"><td class="cell-Vw;t"><span style="margin-right:6px"><a href="Stardust_armor_female.png"><img style="width:20px;max-height:24px" src="Stardust_armor_female.png" alt="Stardust_armor_female.png"/></a></span><span style="margin-right:6px"><a href="Stardust_armor.png"><img style="width:20px;max-height:24px" src="Stardust_armor.png" alt="Stardust_armor.png"/></a></span></td><td class="cell-title"><a href="https://www.notion.so/Stardust-armor-1288f238621980d0b5c4fc849ff8b4a9?pvs=21">Stardust armor</a></td><td class="cell-MNSf">38</td></tr></tbody></table><br/><br/></div><p id="1288f238-6219-8040-a921-e9501694778f" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
